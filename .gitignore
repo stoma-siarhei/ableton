@@ -1,0 +1,30 @@
+xcuserdata/
+*.xcuserstate
+.DS_Store
+
+
+# windows
+.vs
+*.user
+**/VST2Host/Debug/
+**/VST2Host/x64/
+**/build/
+
+
+# clion
+/.idea/
+cmake-build-*/
+
+*.tlog
+*.obj
+*.log
+*.lib
+*.vst3
+*.pdb
+*.db
+*.recipe
+*.exp
+*.exe
+*.res
+*.uidesc
+*.ipch
