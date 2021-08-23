@@ -1,0 +1,187 @@
+CiceroUIWndFrame | CiceroUIWndFrame
+Network Flyout | ATL:00007FFE013
+ms_sqlce_se_notify_wndproc | ms_sqlce_se_notify_wndproc
+CiceroUIWndFrame | CiceroUIWndFrame
+QuickLaunchWindow | HwndWrapper[Proton
+CiceroUIWndFrame | CiceroUIWndFrame
+CiceroUIWndFrame | CiceroUIWndFrame
+CWindow | Windows
+Window | Windows
+D:\build\Hook_Ableton\.bin\x64_Release\Hook_windows_test.exe | ConsoleWindowClass
+Hook_Ableton (GDI+ Window (VCTIP.EXE) | GDI+ Hook Window Class
+.NET-BroadcastEventWindow.4.0.0.0.37a9c05.0 | .NET-BroadcastEventWindow.4.0.0.0.37a9c05.0
+D:\WORK\projects\amptrack\Hook_Ableton\Hook_windows_test\enumerate windows.txt - Notepad++ | Notepad++
+Hook_Ableton - [D:\WORK\projects\amptrack\Hook_Ableton] - SmartGit 20.2.5 (for non-commercial use only) | SWT_Window0
+GDI+ Window (smartgit.exe) | GDI+ Hook Window Class
+SWT_Window_SmartGit-C:\Program Files\SmartGit | SWT_Window0
+.NET-BroadcastEventWindow.4.0.0.0.165f26b.0 | .NET-BroadcastEventWindow.4.0.0.0.165f26b.0
+GDI+ Window (notepad++.exe) | GDI+ Hook Window Class
+Electr Glitch   [Electr Glitch ] - Ableton Live 10 Suite | Ableton Live Window Class
+Hidden Window | HwndWrapper[De
+MediaContextNotificationWindow | HwndWrapper[CaptainPluginDomain
+SystemResourceNotifyWindow | HwndWrapper[CaptainPluginDo
+BrowserHacks/main.c at 7f36108d18423350662938825cd7472c346a71d0 · singi/BrowserHacks - Google Chrome | Chrome_WidgetWin_1
+GDI+ Window (ServiceHub.Host.CLR.x86.exe) | GDI+ Hook Window Class
+.NET-BroadcastEventWindow.4.0.0.0.156ba37.0 | .NET-BroadcastEventWindow.4.0.0.0.156ba37.0
+MediaContextNotificationWindow | HwndWrapper[DefaultDomain;Statu
+SystemResourceNotifyWindow | HwndWrapper[DefaultDomain;S
+GDI+ Window (ServiceHub.IdentityHost.exe) | GDI+ Hook Window Class
+.NET-BroadcastEventWindow.4.0.0.0.6270eb.0 | .NET-BroadcastEventWindow.4.0.0.0.6270eb.0
+GDI+ Window (devenv.exe) | GDI+ Hook Window Class
+CiceroUIWndFrame | CiceroUIWndFrame
+.NET-BroadcastEventWindow.4.0.0.0.35420bd.0 | .NET-BroadcastEventWindow.4.0.0.0.35420bd.0
+MediaContextNotificationWindow | HwndWrapper[DefaultDomain;;b4ef
+SystemResourceNotifyWindow | HwndWrapper[DefaultDomain;;
+Visual Studio Application Management Window | VisualStudioAppManagement
+DDE Server Window | OleDdeWndClass
+DirectSound | JUCE_1910e74
+Windows Audio | JUCE_1910e7497
+JUCEWindow | JUCE_1910e3
+C:\ProgramData\Ableton\Live 10 Suite\Resources\Extensions\Index\Ableton Index.exe | ConsoleWindowClass
+Snagit Capture | HwndWrapper[Def
+Hidden Window | HwndWrapper[De
+SystemResourceNotifyWindow | HwndWrapper[DefaultDomain;;
+MediaContextNotificationWindow | HwndWrapper[DefaultDomain;;5670
+DelayedWnd | Delayed_Mes
+GDI+ Window (snagiteditor.exe) | GDI+ Hook Window Class
+CiceroUIWndFrame | CiceroUIWndFrame
+SystemResourceNotifyWindow | HwndWrapper[DefaultDomain;;
+Snagit | SnagIt5
+mfplayer | AfxWnd140
+.NET-BroadcastEventWindow.4.0.0.0.28601b7.0 | .NET-BroadcastEventWindow.4.0.0.0.28601b7.0
+MediaContextNotificationWindow | HwndWrapper[DefaultDomain;;521a
+DDE Server Window | OleDdeWndClass
+GDI+ Window (Snagit32.exe) | GDI+ Hook Window Class
+GDI+ Window (Explorer.EXE) | GDI+ Hook Window Class
+Hidden Window | HwndWrapper[Pr
+Calculator | Application
+Microsoft Store | ApplicationFrame
+Calculator | Windows.UI.
+Microsoft Store | Windows.UI.Core.
+Microsoft Text Input Application | Windows.UI.Core.CoreWindow
+ProtonVPN | HwndWrappe
+SystemResourceNotifyWindow | HwndWrapper[WebCompanion.ex
+GDI+ Window (ProtonVPN.exe) | GDI+ Hook Window Class
+SystemResourceNotifyWindow | HwndWrapper[ProtonVPN.exe;;
+GDI+ Window (OneDrive.exe) | GDI+ Hook Window Class
+Punto Switcher Main Window | PuntoSwitcher31MainWindow
+AcrobatTrayIcon | AcrobatTrayIcon
+DDE Server Window | OleDdeWndClass
+OneDrive | SkyDrive 
+DDE Server Window | OleDdeWndClass
+GDI+ Window (YandexDisk2.exe) | GDI+ Hook Window Class
+SecurityHealthSystray | SecHealth Window Class
+BluetoothNotificationAreaIconWindowClass | BluetoothNotificationAreaIconWindowClass
+MS_WebcheckMonitor | MS_WebcheckMonitor
+DDE Server Window | OleDdeWndClass
+GDI+ Window (ServiceHub.SettingsHost.exe) | GDI+ Hook Window Class
+.NET-BroadcastEventWindow.4.0.0.0.156ba37.0 | .NET-BroadcastEventWindow.4.0.0.0.156ba37.0
+The Event Manager Dashboard | #32770
+Windows Push Notifications Platform | PushNotificationsPowerManagement
+Task Host Window | COMTASKSWINDOWCLA
+DWM Notification Window | Dwm
+Task Host Window | COMTASKSWINDOWCLA
+Rtc Video PnP Listener | RtcPalVideoPnPMonitorHW
+Skype | Chrome
+Web Companion | HwndWrapper[We
+Hidden Window | HwndWrapper[We
+DDE Server Window | OleDdeWndClass
+DDE Server Window | OleDdeWndClass
+CiceroUIWndFrame | CiceroUIWndFrame
+ProtonVPN | HwndWrappe
+CiceroUIWndFrame | CiceroUIWndFrame
+MediaContextNotificationWindow | HwndWrapper[ProtonVPN.exe;;e865
+MediaContextNotificationWindow | HwndWrapper[WebCompanion.exe;;8
+Program Manager | Progman
+Default IME | IME
+MSCTFIME UI | MSCTFIME UI
+Default IME | IME
+Default IME | IME
+Default IME | IME
+MSCTFIME UI | MSCTFIME UI
+Default IME | IME
+MSCTFIME UI | MSCTFIME UI
+Default IME | IME
+Default IME | IME
+Default IME | IME
+MSCTFIME UI | MSCTFIME UI
+Default IME | IME
+MSCTFIME UI | MSCTFIME UI
+Default IME | IME
+Default IME | IME
+Default IME | IME
+MSCTFIME UI | MSCTFIME UI
+Default IME | IME
+MSCTFIME UI | MSCTFIME UI
+Default IME | IME
+Default IME | IME
+MSCTFIME UI | MSCTFIME UI
+Default IME | IME
+Default IME | IME
+MSCTFIME UI | MSCTFIME UI
+Default IME | IME
+MSCTFIME UI | MSCTFIME UI
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+MSCTFIME UI | MSCTFIME UI
+Default IME | IME
+MSCTFIME UI | MSCTFIME UI
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+MSCTFIME UI | MSCTFIME UI
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+MSCTFIME UI | MSCTFIME UI
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+MSCTFIME UI | MSCTFIME UI
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+Default IME | IME
+MSCTFIME UI | MSCTFIME UI
+Default IME | IME
+Default IME | IME
+MSCTFIME UI | MSCTFIME UI
+Default IME | IME

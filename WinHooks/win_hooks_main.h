@@ -10,8 +10,7 @@ using namespace std;
 namespace amped::win
 {
 
-	const wstring c_ableton_class_name{ L"Ableton Live Window Class" };
-	//const wstring c_ableton_class_name{ L"TTOTAL_CMD" };
+const wstring c_ableton_class_name{ L"Ableton Live Window Class" };
 
 class enumerate_windows
 {
