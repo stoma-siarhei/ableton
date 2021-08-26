@@ -11,6 +11,12 @@
 
 #include <list>
 #include <vector>
+#include <map>
+#include <tuple>
+
+#include <type_traits>
+#include <algorithm>
+#include <functional>
 
 #include <Windows.h>
 

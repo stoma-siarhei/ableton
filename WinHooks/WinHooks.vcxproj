@@ -167,10 +167,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="capture_bitmap.hpp" />
+    <ClInclude Include="enumerate_windows.hpp" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="win_hooks_main.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="capture_bitmap.cpp" />
+    <ClCompile Include="enumerate_windows.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
