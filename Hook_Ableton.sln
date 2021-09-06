@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31521.260
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hook_windows_test", "Hook_windows_test\Hook_windows_test.vcxproj", "{85E94280-CA0F-4A46-B1AA-50D9D784220A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A411239D-D285-486C-86C2-D6633173A974} = {A411239D-D285-486C-86C2-D6633173A974}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WinHooks", "WinHooks\WinHooks.vcxproj", "{A411239D-D285-486C-86C2-D6633173A974}"
 EndProject

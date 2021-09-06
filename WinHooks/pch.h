@@ -10,6 +10,7 @@
 #include <fstream>
 
 #include <list>
+#include <array>
 #include <vector>
 #include <map>
 #include <tuple>
@@ -18,7 +19,17 @@
 #include <algorithm>
 #include <functional>
 
+#include <thread>
+#include <atomic>
+#include <mutex>
+#include <chrono>
+
+#include <filesystem>
+
+#include <exception>
+
 #include <Windows.h>
+#include <windowsx.h>
 
 
 #endif // _PCH_H_

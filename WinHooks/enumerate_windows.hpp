@@ -8,34 +8,39 @@
 
 #include "pch.h"
 
+#include "hooks_headers.h"
+
 
 using namespace std;
 
 namespace amped::win
 {
 
+namespace exec = amped::win::execute;
+
+namespace en = amped::win::enumerate;
+
 const wstring c_ableton_class_name{ L"Ableton Live Window Class" };
 
 class enumerate_windows
 {
 public:
-	using handle_window_t = HWND;
-	using param_t = LPARAM;
-	using class_name_t = tuple<wstring, wstring>;
-	using handle_map_t = map<handle_t, class_name_t>;
-
 	explicit enumerate_windows();
+
 	explicit enumerate_windows(const string_view name);
+
 	~enumerate_windows();
+
+	void operator()();
+
+	en::handle_window_t operator[](const string_view str) noexcept;
+
+	en::handle_window_t operator[](const wstring_view str) noexcept;
 protected:
 	void enumerate();
-	friend bool insert_handle(const handle_window_t h);
-	friend handle_map_t& get_map(enumerate_windows& en);
 private:
-	handle_map_t m_map_handle;
 	string_view m_name_window;
-
-	static enumerate_windows* m_this;
+	en::handle_window_t m_handle{ nullptr };
 }; // class enumerate_windows
 
 } // namespace amped::win

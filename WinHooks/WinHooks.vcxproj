@@ -167,20 +167,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="buffers_manager.hpp" />
     <ClInclude Include="capture_bitmap.hpp" />
     <ClInclude Include="enumerate_windows.hpp" />
+    <ClInclude Include="executing_control.hpp" />
+    <ClInclude Include="hooks_headers.h" />
+    <ClInclude Include="hooks_resources.hpp" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="system_messages.hpp" />
+    <ClInclude Include="utils.hpp" />
     <ClInclude Include="win_hooks_main.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="buffers_manager.cpp" />
     <ClCompile Include="capture_bitmap.cpp" />
     <ClCompile Include="enumerate_windows.cpp" />
+    <ClCompile Include="executing_control.cpp" />
+    <ClCompile Include="hooks_resources.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="system_messages.cpp" />
     <ClCompile Include="win_hooks_main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
