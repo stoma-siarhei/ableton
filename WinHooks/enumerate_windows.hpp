@@ -36,6 +36,10 @@ public:
 	en::handle_window_t operator[](const string_view str) noexcept;
 
 	en::handle_window_t operator[](const wstring_view str) noexcept;
+
+	en::handle_window_t operator[](const tuple<string_view, string_view>& t_str) noexcept;
+
+	en::handle_window_t operator[](const tuple<wstring_view, wstring_view>& t_str) noexcept;
 protected:
 	void enumerate();
 private:

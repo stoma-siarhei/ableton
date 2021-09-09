@@ -49,6 +49,35 @@ en::handle_window_t enumerate_windows::operator[](const wstring_view str) noexce
 	{
 		if (k.find(str) != wstring::npos) return v;
 	}
+	for (auto&& [k, v] : s_map_windows_class)
+	{
+		if (k.find(str) != wstring::npos) return v;
+	}
+	return nullptr;
+}
+
+en::handle_window_t enumerate_windows::operator[](const tuple<string_view, string_view>& t_str) noexcept
+{
+	auto&& [l, r] = t_str;
+	return operator[]({ wstring(begin(l), end(l)), wstring(begin(r), end(r)) });
+}
+
+en::handle_window_t enumerate_windows::operator[](const tuple<wstring_view, wstring_view>& t_str) noexcept
+{
+	auto&& [n, c] = t_str;
+	list<en::handle_window_t> _list;
+	for (auto&& [k, v] : s_map_windows_class)
+	{
+		if (k == c)
+		{
+			_list.push_back(v);
+		}
+		else if (k.find(c) != wstring::npos) _list.push_back(v);
+	}
+	for (auto&& [k, v] : s_map_windows_name)
+	{
+		if (k.find(n) != wstring::npos) _list.push_back(v);
+	}
 	return nullptr;
 }
 

@@ -11,17 +11,19 @@ namespace exec = amped::win::execute;
 
 namespace res = amped::resources;
 
+namespace mem = amped::memory;
+
 namespace fs = filesystem;
 
 execute_manager::execute_manager()
 {
-	m_lock_th.lock();
+	// m_lock_th.lock();
 }
 
 execute_manager::execute_manager(const wstring_view path) 
 	: m_path(path)
 {
-	m_lock_th.lock();
+	// m_lock_th.lock();
 	set_search();
 }
 
@@ -38,7 +40,7 @@ void execute_manager::operator()()
 {
 	auto un_lock = [&] {
 		this_thread::sleep_for(chrono::seconds(c_pause_th));
-		m_lock_th.unlock();
+		// m_lock_th.unlock();
 		while (m_handle == nullptr) this_thread::sleep_for(chrono::seconds(c_pause_th));
 	};
 
@@ -46,6 +48,8 @@ void execute_manager::operator()()
 	
 	thread th{ un_lock };
 	th.join();
+
+	// m_lock_th.unlock();
 
 	save_project();
 
@@ -73,22 +77,18 @@ bool execute_manager::execute_process()
 bool execute_manager::save_project()
 {
 	capture_window();
-	res::button_res_t _buf, _old;
 
-	for (uint32_t it_y = 0; it_y < m_buffer.get_height(res::c_button_height); it_y++)
+	mem::buffer_t _buffer{ m_buffer.get() };
+	res::vector_pixels _pixel(_buffer);
+	_pixel({ m_buffer.get_width(), m_buffer.get_height() });
+	
+	for (auto&& it : _pixel.get())
 	{
-
+		cout << get<0>(it) << ":" << get<1>(it) << endl;
+		size_t _1{ get<0>(it) }, _2{ get<1>(it) - 177 };
+		send_message<type_send_message::mouse> send(m_handle, { _1, _2 });
+		send();
 	}
-
-	INPUT inputs[1] = { 0 };
-	inputs[0].type = INPUT_KEYBOARD;
-	inputs[0].ki.wVk = system_keys::Return_key;
-	inputs[0].ki.dwFlags = KEYEVENTF_KEYUP;
-	SendInput(ARRAYSIZE(inputs), inputs, sizeof(INPUT));
-	return true;
-
-	send_message<type_send_message::keyboard> send(m_handle, { system_keys::Return_key });
-	send();
 
 	return false;
 }
@@ -107,11 +107,11 @@ void execute_manager::set_search()
 
 void execute_manager::check_windows()
 {
-	lock_guard<mutex> lock(m_lock_th);
+	while (!m_execute) this_thread::sleep_for(chrono::seconds(c_pause_th));
+
 	enumerate_windows _en;
 	while (m_execute)
 	{
-		wstring str{ L"enumerate" };
 		_en(), m_handle = _en[m_search];
 		this_thread::sleep_for(chrono::seconds(c_pause_th));
 	}

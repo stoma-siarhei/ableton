@@ -75,6 +75,7 @@ public:
 
 	uint32_t get_size_pixel() const;
 
+	buffer_t get() const;
 protected:
 private:
 	dimensions m_dim;

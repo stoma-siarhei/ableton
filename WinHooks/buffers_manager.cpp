@@ -64,4 +64,9 @@ uint32_t buffer_image::get_size_pixel() const
 	return m_dim.get<4>();
 }
 
+buffer_t buffer_image::get() const
+{
+    return m_buffer;
+}
+
 } // namespace amped::memory

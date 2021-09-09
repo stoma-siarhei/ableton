@@ -8,6 +8,10 @@
 #include "capture_bitmap.hpp"
 #include "system_messages.hpp"
 #include "executing_control.hpp"
+#include "buffers_manager.hpp"
+#include "hooks_headers.h"
+#include "hooks_resources.hpp"
+#include "utils.hpp"
 
 
 #endif // _WIN_HOOKS_MAIN_H_

@@ -7,23 +7,26 @@ using namespace std;
 #pragma optimize("", off);
 int main()
 {
-    std::cout << "Hello World!\n";
-	amped::win::enumerate_windows e;
-	amped::win::enumerate::handle_window_t h{ e["Electr Glitch"] };
-
-	amped::win::capture_dc dc{ h };
-	return 0;
 	{
 		amped::win::execute_manager manager;
 		wstring str{ L"C:\\Users\\scander\\Documents\\test_2\\Electr Glitch  Project\\Electr Glitch .als" };
 		manager(str);
 		Sleep(20000);
-		amped::win::enumerate_windows e;
-		amped::win::enumerate::handle_window_t h{ e["Ableton"] };
-		amped::win::export_vawe _ex(h);
-		_ex(str);
+		// amped::win::enumerate_windows e;
+		// amped::win::enumerate::handle_window_t h{ e["Electr Glitch"] };
+		// amped::win::export_vawe _ex(h);
+		// _ex(str);
 		return 0;
 	}
+    std::cout << "Hello World!\n";
+	amped::win::enumerate_windows e;
+	amped::win::enumerate::handle_window_t h{ e["Electr Glitch"] };
+
+	amped::win::capture_dc dc{ h };
+
+	amped::memory::buffer_t buff;
+	amped::resources::vector_pixels pixel(buff);
+	return 0;
 	{
 		ifstream rf("D:\\button_off.dat", ios::binary);
 		ofstream wf("D:\\button_off.txt");

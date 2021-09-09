@@ -65,7 +65,7 @@ const uint64_t system_keys::Y_key = 0x59;
 
 const uint64_t system_keys::Z_key = 0x5A;
 
-#pragma optimize("", off);
+#pragma optimize("", off)
 
 send_message_impl::send_message_impl(const handle_t h, const message_t m, const wparam_t w, const lparam_t l) noexcept 
 	: m_handle(h), m_message(m), m_param_w(w), m_param_l(l)

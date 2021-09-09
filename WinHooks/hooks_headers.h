@@ -26,6 +26,8 @@ using array_pixel_t = array<uint8_t, 4>;
 
 using vector_pixel_t = vector<array_pixel_t>;
 
+using list_coord_t = list<coord_t>;
+
 } // namespace amped::resources
 
 namespace amped::memory

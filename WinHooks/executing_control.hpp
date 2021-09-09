@@ -9,6 +9,7 @@
 #include "capture_bitmap.hpp"
 #include "buffers_manager.hpp"
 #include "system_messages.hpp"
+#include "hooks_resources.hpp"
 
 
 using namespace std;
@@ -47,7 +48,7 @@ private:
 	atomic<en::handle_window_t> m_handle{ nullptr };
 
 	thread m_th{ &execute_manager::check_windows, this };
-	mutex m_lock_th;
+	// mutex m_lock_th;
 	atomic_bool m_execute{ false };
 
 	mem::buffer_image m_buffer;
