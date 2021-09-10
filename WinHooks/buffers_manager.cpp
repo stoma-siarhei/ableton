@@ -5,7 +5,7 @@
 namespace amped::memory
 {
 	dimensions::dimensions()
-		: width(0), height(0), bit(0), size_pixel(0)
+		: width(0), height(0), bit(0), size_pixel(0), left(0), top(0)
 	{
 	}
 
@@ -15,6 +15,8 @@ namespace amped::memory
 	height = dim.height;
 	bit = dim.bit;
 	size_pixel = dim.size_pixel;
+	left = dim.left;
+	top = dim.top;
 	return *this;
 }
 
@@ -64,9 +66,46 @@ uint32_t buffer_image::get_size_pixel() const
 	return m_dim.get<4>();
 }
 
-buffer_t buffer_image::get() const
+int buffer_image::get_left() const
 {
-    return m_buffer;
+	return m_dim.get<5>();
+}
+
+int buffer_image::get_top() const
+{
+	return m_dim.get<6>();
+}
+
+buffer_t&& buffer_image::get() const
+{
+    return add_rvalue_reference_t<buffer_t>(m_buffer);
+}
+
+manager::manager() noexcept
+{
+}
+
+manager::~manager()
+{
+}
+
+size_t manager::get() const noexcept
+{
+	return m_buffers.size();
+}
+
+void manager::set(size_t size)
+{
+	m_buffers.resize(size);
+}
+
+buffer_image& manager::operator[](const size_t index) const
+{
+	if (index < m_buffers.size())
+	{
+		return add_lvalue_reference_t<buffer_image>(m_buffers[index]);
+	}
+	throw out_of_range("Out of range buffer maneger");
 }
 
 } // namespace amped::memory

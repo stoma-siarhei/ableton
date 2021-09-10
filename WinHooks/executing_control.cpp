@@ -78,6 +78,38 @@ bool execute_manager::save_project()
 {
 	capture_window();
 
+#ifdef _SLICING_POLYGON
+	bool _is_button{ false };
+	size_t _index{ 0 };
+	for (size_t it{ 0 }; it < m_manager.get(); it++)
+	{
+		mem::buffer_t&& _buffer = m_manager[it].get();
+		res::vector_pixels _pixel(_buffer);
+		if (_is_button = _pixel({ m_manager[it].get_width(), m_manager[it].get_height() }); _is_button)
+		{
+			_index = it;
+			break;
+		}
+		/*
+		for (auto&& itt : _pixel.get())
+		{
+			cout << m_manager[it].get_left() + get<0>(itt) - 8 << ":" << m_manager[it].get_top() + get<1>(itt) - 51 << endl;
+		}
+		*/
+	}
+	bm::rect_t _rect{ m_manager[_index].get_left(), m_manager[_index].get_top(), m_manager[_index].get_left() + res::c_button_width * 2, m_manager[_index].get_height() - m_manager[_index].get_top() - res::c_button_height };
+	capture_window(_rect);
+	for (size_t it{ 0 }; it < m_manager.get(); it++)
+	{
+		mem::buffer_t&& _buffer = m_manager[it].get();
+		res::vector_pixels _pixel(_buffer);
+		if (_is_button = _pixel({ m_manager[it].get_width(), m_manager[it].get_height() }); _is_button)
+		{
+			auto&& [_x, _y] = _pixel.get();
+			send_mouse(m_manager[it].get_left() + _x - 8 + res::c_button_width / 2, m_manager[it].get_top() + _y - 51 + res::c_button_height / 2);
+		}
+	}
+#else
 	mem::buffer_t _buffer{ m_buffer.get() };
 	res::vector_pixels _pixel(_buffer);
 	_pixel({ m_buffer.get_width(), m_buffer.get_height() });
@@ -89,6 +121,7 @@ bool execute_manager::save_project()
 		send_message<type_send_message::mouse> send(m_handle, { _1, _2 });
 		send();
 	}
+#endif // _SLICING_POLYGON
 
 	return false;
 }
@@ -96,8 +129,23 @@ bool execute_manager::save_project()
 bool execute_manager::capture_window()
 {
 	capture_dc _dc{ m_handle };
+#ifdef _SLICING_POLYGON
+	_dc(m_manager);
+#else
 	_dc(m_buffer);
+#endif // _SLICING_POLYGON
 	return false;
+}
+
+bool execute_manager::capture_window(const bm::rect_t& rect)
+{
+	return false;
+}
+
+bool execute_manager::send_mouse(const size_t x, const size_t y)
+{
+	send_message<type_send_message::mouse> send(m_handle, { x, y });
+	return send();
 }
 
 void execute_manager::set_search()

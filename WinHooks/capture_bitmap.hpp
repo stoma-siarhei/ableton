@@ -9,7 +9,10 @@
 
 
 #define _SAVE_BITMAP_TO_FILE
-#undef _SAVE_BITMAP_TO_FILE
+#undef _SAVE_BITMAP_TO_FILE_
+
+#define _SLICING_POLYGON
+#undef _SLICING_POLYGON_
 
 
 namespace amped::win
@@ -24,7 +27,12 @@ public:
 
 	~capture_dc();
 
+#ifdef _SLICING_POLYGON
+	bool operator()(memory::manager& manager) const;
+	bool operator()(memory::manager& manager, const bm::rect_t& rect) const;
+#else
 	bool operator()(memory::buffer_image& buffer);
+#endif // _SLICING_POLYGON
 protected:
 	void init();
 private:

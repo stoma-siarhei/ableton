@@ -94,16 +94,16 @@ struct vector_pixels
 {
 	vector_pixels(mem::buffer_t& buff);
 
-	void operator()(const coord_t& coord, const size_t pos = 0);
+	bool operator()(const coord_t& coord, const size_t pos = 0);
 
-	list_coord_t get() const;
+	coord_t get() const;
 protected:
 	void make_pixel(const size_t _pos, const size_t _width);
 	bool compare() const;
 private:
 	vector_pixel_t m_pixel_border_s, m_pixel_letter_s, m_pixel_border, m_pixel_letter, m_delta_border, m_delta_letter;
-	mem::buffer_t m_buffer;
-	list_coord_t m_list_coord;
+	mem::buffer_t& m_buffer;
+	coord_t m_coord;
 };
 
 } // namespace amped::resources

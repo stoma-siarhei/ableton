@@ -39,6 +39,8 @@ protected:
 	bool execute_process();
 	bool save_project();
 	bool capture_window();
+	bool capture_window(const bm::rect_t& rect);
+	bool send_mouse(const size_t x, const size_t y);
 	void set_search();
 private:
 	void check_windows();
@@ -50,8 +52,11 @@ private:
 	thread m_th{ &execute_manager::check_windows, this };
 	// mutex m_lock_th;
 	atomic_bool m_execute{ false };
-
+#ifdef _SLICING_POLYGON
+	mem::manager m_manager;
+#else
 	mem::buffer_image m_buffer;
+#endif // _SLICING_POLYGON
 }; // class execute_manager
 
 } // namespace amped::win

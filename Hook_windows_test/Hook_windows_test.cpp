@@ -4,7 +4,7 @@
 
 
 using namespace std;
-#pragma optimize("", off);
+#pragma optimize("", off)
 int main()
 {
 	{

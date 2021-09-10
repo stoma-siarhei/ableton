@@ -39,7 +39,7 @@ vector_pixels::vector_pixels(mem::buffer_t& buff)
 	transform(begin(m_pixel_letter), end(m_pixel_letter), begin(m_delta_letter), delta);
 }
 
-void vector_pixels::operator()(const coord_t& coord, const size_t pos)
+bool vector_pixels::operator()(const coord_t& coord, const size_t pos)
 {
 	size_t st_h{ 0 }, st_w{ 0 };
 	auto&& [w, h] = coord;
@@ -53,14 +53,18 @@ void vector_pixels::operator()(const coord_t& coord, const size_t pos)
 		for (size_t it_w{ st_w }; it_w < w - c_button_width; it_w++)
 		{
 			make_pixel(it_h * w + it_w, w);
-			if (compare()) m_list_coord.push_back({ it_w, it_h });
+			if (compare())
+			{
+				m_coord = { it_w, it_h };
+			}
 		}
 	}
+	return true;
 }
 
-list_coord_t vector_pixels::get() const
+coord_t vector_pixels::get() const
 {
-	return m_list_coord;
+	return m_coord;
 }
 
 void vector_pixels::make_pixel(const size_t _pos, const size_t _width)

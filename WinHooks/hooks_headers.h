@@ -68,6 +68,10 @@ using handle_map_t = map<handle_t, class_name_t>;
 namespace amped::win::bmp
 {
 
+constexpr const size_t c_size_image_w{ 50 };
+
+constexpr const size_t c_size_image_h{ 50 };
+
 using handle_t = amped::win::enumerate::handle_window_t;
 
 using handle_dc_t = HDC;
@@ -82,9 +86,7 @@ using info_t = BITMAPINFO;
 
 using info_header_t = BITMAPINFOHEADER;
 
-#ifdef _SAVE_BITMAP_TO_FILE
 using file_header_t = BITMAPFILEHEADER;
-#endif // _SAVE_BITMAP_TO_FILE
 
 } // namespace amped::win::bmp
 
