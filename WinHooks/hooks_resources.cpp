@@ -56,10 +56,11 @@ bool vector_pixels::operator()(const coord_t& coord, const size_t pos)
 			if (compare())
 			{
 				m_coord = { it_w, it_h };
+				return true;
 			}
 		}
 	}
-	return true;
+	return false;
 }
 
 coord_t vector_pixels::get() const

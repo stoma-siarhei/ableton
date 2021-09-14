@@ -51,7 +51,8 @@ enum class type_send_message : uint8_t
 {
 	mouse,
 	keyboard,
-	clipboard
+	clipboard,
+	scroll
 }; // class enum type_send_message
 
 struct send_message_impl
@@ -156,9 +157,54 @@ private:
 template <>
 struct send_message<type_send_message::clipboard>
 {
+	explicit send_message() noexcept
+	{}
+
+	explicit send_message(const send_message_impl::handle_t& handle, const int32_t delta, const tuple<uint32_t, uint32_t> coord) noexcept
+	{}
+
+	send_message_impl::result_t operator()() const
+	{
+		return send();
+	}
 protected:
+	send_message_impl::result_t send() const
+	{
+		send_message_impl::result_t _result{ 0 };
+		return _result;
+	}
 private:
 }; // struct send_message<type_send_message::clipboard>
+
+template <>
+struct send_message<type_send_message::scroll>
+{
+	explicit send_message() noexcept
+	{}
+
+	explicit send_message(const send_message_impl::handle_t& handle, const int32_t delta, const tuple<uint32_t, uint32_t> coord) noexcept
+		: m_handle(handle), m_wparam(delta << 16)
+	{
+		auto&& [_x, _y] = coord;
+		m_lparam = (_y << 16) | _x;
+	}
+
+	send_message_impl::result_t operator()() const
+	{
+		return send();
+	}
+protected:
+	send_message_impl::result_t send() const
+	{
+		send_message_impl::result_t _result{ 0 };
+		return _result;
+	}
+private:
+	send_message_impl::handle_t m_handle{ HWND_BROADCAST };
+	send_message_impl::message_t m_message{ WM_MOUSEHWHEEL };
+	send_message_impl::wparam_t m_wparam{ 0 };
+	send_message_impl::lparam_t m_lparam{ 0 };
+}; // struct send_message<type_send_message::scroll>
 
 // Export Audio/Video ( Ctrl + Shift + R )
 struct export_vawe : public send_message<type_send_message::keyboard>

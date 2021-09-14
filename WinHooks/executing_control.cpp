@@ -97,7 +97,7 @@ bool execute_manager::save_project()
 		}
 		*/
 	}
-	bm::rect_t _rect{ m_manager[_index].get_left(), m_manager[_index].get_top(), m_manager[_index].get_left() + res::c_button_width * 2, m_manager[_index].get_height() - m_manager[_index].get_top() - res::c_button_height };
+	bm::rect_t _rect{ m_manager[_index].get_left(), m_manager[_index].get_top(), m_manager[_index].get_left() + m_manager[_index].get_width() * 2, m_manager[_index].get_top() + m_manager[_index].get_height() * 6 };
 	capture_window(_rect);
 	for (size_t it{ 0 }; it < m_manager.get(); it++)
 	{
@@ -106,8 +106,10 @@ bool execute_manager::save_project()
 		if (_is_button = _pixel({ m_manager[it].get_width(), m_manager[it].get_height() }); _is_button)
 		{
 			auto&& [_x, _y] = _pixel.get();
-			send_mouse(m_manager[it].get_left() + _x - 8 + res::c_button_width / 2, m_manager[it].get_top() + _y - 51 + res::c_button_height / 2);
+			m_coord = { m_manager[it].get_left(), m_manager[it].get_top() };
+			send_mouse_click(m_manager[it].get_left() + _x - 8 + res::c_button_width / 2, m_manager[it].get_top() + _y - 51 + res::c_button_height / 2);
 		}
+		send_mouse_scroll();
 	}
 #else
 	mem::buffer_t _buffer{ m_buffer.get() };
@@ -142,9 +144,15 @@ bool execute_manager::capture_window(const bm::rect_t& rect)
 	return false;
 }
 
-bool execute_manager::send_mouse(const size_t x, const size_t y)
+bool execute_manager::send_mouse_click(const size_t x, const size_t y) const
 {
 	send_message<type_send_message::mouse> send(m_handle, { x, y });
+	return send();
+}
+
+bool execute_manager::send_mouse_scroll() const
+{
+	send_message<type_send_message::scroll> send(m_handle, -120, m_coord);
 	return send();
 }
 

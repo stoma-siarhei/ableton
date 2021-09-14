@@ -40,7 +40,8 @@ protected:
 	bool save_project();
 	bool capture_window();
 	bool capture_window(const bm::rect_t& rect);
-	bool send_mouse(const size_t x, const size_t y);
+	bool send_mouse_click(const size_t x, const size_t y) const;
+	bool send_mouse_scroll() const;
 	void set_search();
 private:
 	void check_windows();
@@ -52,6 +53,8 @@ private:
 	thread m_th{ &execute_manager::check_windows, this };
 	// mutex m_lock_th;
 	atomic_bool m_execute{ false };
+
+	tuple<uint32_t, uint32_t> m_coord;
 #ifdef _SLICING_POLYGON
 	mem::manager m_manager;
 #else
