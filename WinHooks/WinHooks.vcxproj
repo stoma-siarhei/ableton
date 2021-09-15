@@ -171,6 +171,7 @@
     <ClInclude Include="capture_bitmap.hpp" />
     <ClInclude Include="enumerate_windows.hpp" />
     <ClInclude Include="executing_control.hpp" />
+    <ClInclude Include="hash_algorithm.h" />
     <ClInclude Include="hooks_headers.h" />
     <ClInclude Include="hooks_resources.hpp" />
     <ClInclude Include="pch.h" />
@@ -183,6 +184,7 @@
     <ClCompile Include="capture_bitmap.cpp" />
     <ClCompile Include="enumerate_windows.cpp" />
     <ClCompile Include="executing_control.cpp" />
+    <ClCompile Include="hash_algorithm.cpp" />
     <ClCompile Include="hooks_resources.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

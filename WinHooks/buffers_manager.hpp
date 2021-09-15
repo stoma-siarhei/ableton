@@ -5,6 +5,7 @@
 #include "pch.h"
 
 #include "hooks_headers.h"
+#include "hash_algorithm.h"
 
 
 using namespace std;
@@ -109,10 +110,15 @@ public:
 
 	void set(size_t size);
 
+	string_view get_hash();
+
 	buffer_image& operator[](const size_t index) const;
 protected:
+	void generate_hash();
 private:
 	buffers_t m_buffers;
+	string m_hash;
+	bool m_resize{ true };
 }; // class manager
 
 } // namespace amped::memory

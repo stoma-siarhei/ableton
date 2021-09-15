@@ -96,7 +96,14 @@ size_t manager::get() const noexcept
 
 void manager::set(size_t size)
 {
+	m_resize = true;
 	m_buffers.resize(size);
+}
+
+string_view manager::get_hash()
+{
+	if (m_resize) generate_hash();
+	return m_hash;
 }
 
 buffer_image& manager::operator[](const size_t index) const
@@ -106,6 +113,24 @@ buffer_image& manager::operator[](const size_t index) const
 		return add_lvalue_reference_t<buffer_image>(m_buffers[index]);
 	}
 	throw out_of_range("Out of range buffer maneger");
+}
+
+void manager::generate_hash()
+{
+	md5_t md5{ 0 };
+
+	MD5Init(&md5);
+
+	for (auto&& it : m_buffers) MD5Update(&md5, it.get().data(), it.get().size());
+
+	hash_md5_t _hash{ 0 };
+	MD5Final(_hash, &md5);
+
+	stringstream ss;
+	for (auto&& it : _hash) ss << "0x" << hex << setfill('0') << setw(2) << (int)it;
+
+	m_hash = ss.str();
+	m_resize = false;
 }
 
 } // namespace amped::memory

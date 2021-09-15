@@ -136,6 +136,8 @@ struct send_message<type_send_message::keyboard>
 protected:
 	send_message_impl::result_t send() const
 	{
+		SetActiveWindow(m_handle);
+		SetFocus(m_handle);
 		send_message_impl::result_t _result{ 0 };
 		for (auto&& it : m_message)
 		{
@@ -196,8 +198,8 @@ struct send_message<type_send_message::scroll>
 protected:
 	send_message_impl::result_t send() const
 	{
-		send_message_impl::result_t _result{ 0 };
-		return _result;
+		SetActiveWindow(m_handle);
+		return send_message_impl(m_handle, m_message, m_wparam, m_lparam)();
 	}
 private:
 	send_message_impl::handle_t m_handle{ HWND_BROADCAST };

@@ -76,6 +76,10 @@ bool execute_manager::execute_process()
 
 bool execute_manager::save_project()
 {
+	wstring str{ L"" };
+	export_vawe ev(m_handle);
+	ev(str);
+
 	capture_window();
 
 #ifdef _SLICING_POLYGON
@@ -90,12 +94,6 @@ bool execute_manager::save_project()
 			_index = it;
 			break;
 		}
-		/*
-		for (auto&& itt : _pixel.get())
-		{
-			cout << m_manager[it].get_left() + get<0>(itt) - 8 << ":" << m_manager[it].get_top() + get<1>(itt) - 51 << endl;
-		}
-		*/
 	}
 	bm::rect_t _rect{ m_manager[_index].get_left(), m_manager[_index].get_top(), m_manager[_index].get_left() + m_manager[_index].get_width() * 2, m_manager[_index].get_top() + m_manager[_index].get_height() * 6 };
 	capture_window(_rect);
@@ -108,8 +106,8 @@ bool execute_manager::save_project()
 			auto&& [_x, _y] = _pixel.get();
 			m_coord = { m_manager[it].get_left(), m_manager[it].get_top() };
 			send_mouse_click(m_manager[it].get_left() + _x - 8 + res::c_button_width / 2, m_manager[it].get_top() + _y - 51 + res::c_button_height / 2);
+			send_mouse_scroll();
 		}
-		send_mouse_scroll();
 	}
 #else
 	mem::buffer_t _buffer{ m_buffer.get() };
@@ -141,6 +139,12 @@ bool execute_manager::capture_window()
 
 bool execute_manager::capture_window(const bm::rect_t& rect)
 {
+	capture_dc _dc{ m_handle };
+#ifdef _SLICING_POLYGON
+	_dc(m_manager, rect);
+#else
+	_dc(m_buffer);
+#endif // _SLICING_POLYGON
 	return false;
 }
 

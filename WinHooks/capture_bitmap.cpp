@@ -102,7 +102,7 @@ bool capture_dc::operator()(memory::manager& manager, const bm::rect_t& rect) co
 
 	SetStretchBltMode(_hdc, HALFTONE);
 
-	array<tuple<int, int>, 2> _start{ make_tuple(0, 0), { bm::c_size_image_w / 2, bm::c_size_image_h / 2 } };
+	array<tuple<int, int>, 2> _start{ make_tuple(rect.left, rect.top), { rect.left + bm::c_size_image_w / 2, rect.top + bm::c_size_image_h / 2 } };
 	array<size_t, 2> _count_x{ ((size_t)rect.right - rect.left) / bm::c_size_image_w, ((size_t)rect.right - rect.left + get<0>(_start[1])) / bm::c_size_image_w },
 		             _count_y{ ((size_t)rect.bottom - rect.top) / bm::c_size_image_h, ((size_t)rect.bottom - rect.top + get<1>(_start[1])) / bm::c_size_image_h };
 
@@ -145,8 +145,8 @@ bool capture_dc::operator()(memory::manager& manager, const bm::rect_t& rect) co
 					f.close();
 				}
 #endif // _SAVE_BITMAP_TO_FILE
-}
-}
+			}
+		}
 	}
 
 	DeleteObject(_hbitmap);
