@@ -10,7 +10,8 @@ int main()
 	using namespace amped::win;
 	{
 		amped::win::execute_manager manager;
-		wstring str{ L"C:\\Users\\scander\\Documents\\test_2\\Electr Glitch  Project\\Electr Glitch .als" };
+		// wstring str{ L"C:\\Users\\scander\\Documents\\test_2\\Electr Glitch  Project\\Electr Glitch .als" };
+		wstring str{ L"D:\\Temp\\Electr Glitch  Project\\Electr Glitch .als" };
 		manager(str);
 		// amped::win::enumerate_windows e;
 		// amped::win::enumerate::handle_window_t h{ e["Electr Glitch"] };

@@ -68,7 +68,7 @@ using handle_map_t = map<handle_t, class_name_t>;
 namespace amped::win::bmp
 {
 
-constexpr const size_t c_size_image_w{ 50 };
+constexpr const size_t c_size_image_w{ 100 };
 
 constexpr const size_t c_size_image_h{ 50 };
 

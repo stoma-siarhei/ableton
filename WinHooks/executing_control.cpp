@@ -70,16 +70,59 @@ bool execute_manager::execute_process()
 {
 	exec::shell_execute_info_t sh{ sizeof(exec::shell_execute_info_t), 
 		NULL, NULL, c_verb.c_str(), m_path.c_str(), NULL, NULL, SW_MAXIMIZE, NULL };
+
+	wcout << L"Shell execute - " << m_path << endl;
 	
 	return ShellExecuteEx(&sh);
 }
 
 bool execute_manager::save_project()
 {
-	wstring str{ L"" };
-	export_vawe ev(m_handle);
-	ev(str);
+#ifdef _NO_CAPTURE_BITMAP_MAIN_FORM
+	// send_mouse_click(15, -10);
+	HMENU n_menu = GetMenu(m_handle);
+	HMENU n_sub_menu = GetSubMenu(n_menu, 0);
+	// 17
+	cout << GetMenuItemCount(n_sub_menu) << endl;
+	m_search = L"Export Audio/Video";
+	enumerate_windows _en;
+	_en(), m_handle = _en[m_search];
+	cout << "Check window - " << hex << m_handle << endl;
 
+	vector<tuple<int, int>> cord{ {234, 45}, {210, 225}, {210, 333}, {210, 446}, {85, 590} };
+
+	if (m_handle != nullptr)
+	{
+		for (auto&& it : cord)
+		{
+			auto [_x, _y] = it;
+			bool _b = send_mouse_click(_x, _y);
+			cout << "Send mouse click {" << dec << _x << ", " << _y << "} - " << _b << endl;
+		}
+		/*
+		send_mouse_click(234, 45);
+		send_mouse_click(210, 225);
+		send_mouse_click(210, 333);
+		send_mouse_click(210, 446);
+		send_mouse_click(85, 590);
+		*/
+	}
+	/*
+	* Rendered Track 
+	* X - 234 Y - 45
+	* Create Analysis File
+	* X - 210 Y- 225
+	* Encode PCM
+	* X - 210 Y - 333
+	* Encode MP3
+	* X - 210 Y - 446
+	* 
+	* X- 85 Y - 585
+	* 
+	* 
+	* 
+	*/
+#else
 	capture_window();
 
 #ifdef _SLICING_POLYGON
@@ -122,10 +165,12 @@ bool execute_manager::save_project()
 		send();
 	}
 #endif // _SLICING_POLYGON
+#endif // _NO_CAPTURE_BITMAP_MAIN_FORM
 
 	return false;
 }
 
+#ifndef _NO_CAPTURE_BITMAP_MAIN_FORM
 bool execute_manager::capture_window()
 {
 	capture_dc _dc{ m_handle };
@@ -147,22 +192,27 @@ bool execute_manager::capture_window(const bm::rect_t& rect)
 #endif // _SLICING_POLYGON
 	return false;
 }
+#endif // _NO_CAPTURE_BITMAP_MAIN_FORM
 
-bool execute_manager::send_mouse_click(const size_t x, const size_t y) const
+bool execute_manager::send_mouse_click(const int x, const int y) const
 {
 	send_message<type_send_message::mouse> send(m_handle, { x, y });
 	return send();
 }
 
+#ifndef _NO_CAPTURE_BITMAP_MAIN_FORM
 bool execute_manager::send_mouse_scroll() const
 {
 	send_message<type_send_message::scroll> send(m_handle, -120, m_coord);
 	return send();
 }
+#endif // _NO_CAPTURE_BITMAP_MAIN_FORM
 
 void execute_manager::set_search()
 {
-	m_search = fs::path{ m_path }.stem().wstring();
+	m_search = L"[";
+	m_search += fs::path{ m_path }.stem().wstring();
+	m_search += L"]";
 }
 
 void execute_manager::check_windows()
@@ -172,8 +222,10 @@ void execute_manager::check_windows()
 	enumerate_windows _en;
 	while (m_execute)
 	{
+		wstring _str{ L"Ableton" };
 		_en(), m_handle = _en[m_search];
 		this_thread::sleep_for(chrono::seconds(c_pause_th));
+		cout << "Check window - " << hex << m_handle << endl;
 	}
 }
 

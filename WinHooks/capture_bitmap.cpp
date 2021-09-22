@@ -46,7 +46,7 @@ bool capture_dc::operator()(memory::manager& manager) const
 		{
 			for (size_t it_x = 0; it_x < _count_x[it]; it_x++)
 			{
-				int _l{ _start_dx + static_cast<int>(it_x) * 50 }, _t{ _start_dy + static_cast<int>(it_y) * 50 };
+				int _l{ _start_dx + static_cast<int>(it_x) * 100 }, _t{ _start_dy + static_cast<int>(it_y) * 50 };
 				BitBlt(_bmp, 0, 0, _dx, _dy, _hdc, _l, _t, SRCCOPY);
 
 				bm::bitmap_t _bitmap;
@@ -122,7 +122,7 @@ bool capture_dc::operator()(memory::manager& manager, const bm::rect_t& rect) co
 		{
 			for (size_t it_x = 0; it_x < _count_x[it]; it_x++)
 			{
-				int _l{ _start_dx + static_cast<int>(it_x) * 50 }, _t{ _start_dy + static_cast<int>(it_y) * 50 };
+				int _l{ _start_dx + static_cast<int>(it_x) * 100 }, _t{ _start_dy + static_cast<int>(it_y) * 50 };
 				BitBlt(_bmp, 0, 0, _dx, _dy, _hdc, _l, _t, SRCCOPY);
 
 				bm::bitmap_t _bitmap;

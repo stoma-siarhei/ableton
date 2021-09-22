@@ -12,6 +12,10 @@
 #include "hooks_resources.hpp"
 
 
+#define _NO_CAPTURE_BITMAP_MAIN_FORM
+#undef _NO_CAPTURE_BITMAP_MAIN_FORM_
+
+
 using namespace std;
 
 namespace amped::win
@@ -38,10 +42,14 @@ public:
 protected:
 	bool execute_process();
 	bool save_project();
+#ifndef _NO_CAPTURE_BITMAP_MAIN_FORM
 	bool capture_window();
 	bool capture_window(const bm::rect_t& rect);
-	bool send_mouse_click(const size_t x, const size_t y) const;
+#endif // _NO_CAPTURE_BITMAP_MAIN_FORM
+	bool send_mouse_click(const int x, const int y) const;
+#ifndef _NO_CAPTURE_BITMAP_MAIN_FORM
 	bool send_mouse_scroll() const;
+#endif // _NO_CAPTURE_BITMAP_MAIN_FORM
 	void set_search();
 private:
 	void check_windows();
